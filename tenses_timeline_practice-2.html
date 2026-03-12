@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>12 English Tenses Timeline Practice</title>
+  <style>
+    :root {
+      --bg: #f7f6f2;
+      --card: #fffdf8;
+      --ink: #1f2937;
+      --muted: #6b7280;
+      --line: #d9d2c3;
+      --accent: #8b5e3c;
+      --accent-soft: #f2e7da;
+      --good: #2d6a4f;
+      --shadow: 0 10px 30px rgba(0,0,0,0.08);
+      --radius: 20px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: linear-gradient(180deg, #f8f5ef 0%, #f3efe7 100%);
+      color: var(--ink);
+    }
+
+    .wrap {
+      max-width: 1480px;
+      margin: 0 auto;
+      padding: 28px 18px 60px;
+    }
+
+    .hero {
+      background: var(--card);
+      border: 1px solid #eee4d5;
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: 28px;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(30px, 4vw, 44px);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    .sub {
+      font-size: 17px;
+      line-height: 1.6;
+      color: var(--muted);
+      max-width: 1100px;
+    }
+
+    .topbar {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 18px;
+      margin: 18px 0 24px;
+    }
+
+    .panel {
+      background: var(--card);
+      border: 1px solid #eee4d5;
+      border-radius: 22px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .panel h2 {
+      margin: 0 0 12px;
+      font-size: 20px;
+    }
+
+    .panel p, .panel li {
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 15px;
+    }
+
+    .legend {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .pill {
+      background: var(--accent-soft);
+      color: var(--accent);
+      border: 1px solid #ead6bf;
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .progress-box {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      justify-content: center;
+      height: 100%;
+    }
+
+    .progress-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 16px;
+      background: #eee5d7;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #c68b59, #8b5e3c);
+      border-radius: 999px;
+      transition: width 0.25s ease;
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 6px;
+    }
+
+    button {
+      border: none;
+      border-radius: 14px;
+      padding: 11px 16px;
+      font: inherit;
+      cursor: pointer;
+      transition: transform 0.15s ease, opacity 0.15s ease;
+    }
+
+    button:hover { transform: translateY(-1px); }
+    button:active { transform: translateY(0); }
+
+    .primary {
+      background: var(--accent);
+      color: white;
+    }
+
+    .secondary {
+      background: #efe5d7;
+      color: #68462d;
+    }
+
+    .ghost {
+      background: #f8f3ea;
+      color: var(--muted);
+      border: 1px solid #e5d9c8;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid #eee4d5;
+      border-radius: 24px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .card h3 {
+      margin: 0;
+      font-size: 23px;
+      line-height: 1.15;
+    }
+
+    .mini {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.45;
+      margin-top: 5px;
+    }
+
+    .badge {
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: #f4ece0;
+      color: #7a5335;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .field-label {
+      display: block;
+      margin: 12px 0 8px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .situations-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 12px;
+    }
+
+    .situation-card {
+      background: #fcf8f2;
+      border: 1px solid #eadfce;
+      border-radius: 18px;
+      padding: 14px;
+    }
+
+    .situation-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .situation-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: #5f432d;
+      line-height: 1.25;
+    }
+
+    .situation-pick {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: #5a4d42;
+      background: #fffdfa;
+      border: 1px solid #eadfce;
+      border-radius: 999px;
+      padding: 7px 10px;
+      white-space: nowrap;
+    }
+
+    .situation-pick input {
+      margin: 0;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 82px;
+      resize: vertical;
+      border-radius: 16px;
+      border: 1px solid #e5d9c8;
+      background: #fffdfa;
+      padding: 13px 14px;
+      font: inherit;
+      color: var(--ink);
+      outline: none;
+    }
+
+    textarea:focus {
+      border-color: #bb8a5f;
+      box-shadow: 0 0 0 3px rgba(187,138,95,0.15);
+    }
+
+    .canvas-wrap {
+      margin-top: 8px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid #e7dccd;
+      background: #fffdfa;
+    }
+
+    .timeline-hint {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 12px 0;
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    canvas {
+      display: block;
+      width: 100%;
+      height: 140px;
+      touch-action: none;
+      cursor: crosshair;
+      background: linear-gradient(180deg, #fffdfa 0%, #fbf6ef 100%);
+    }
+
+    .canvas-actions {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 10px 12px 12px;
+      flex-wrap: wrap;
+    }
+
+    .scenario-notice {
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: #f5eee3;
+      color: #6b5846;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .footer-note {
+      margin-top: 22px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 14px;
+    }
+
+    @media (max-width: 980px) {
+      .topbar, .situations-grid { grid-template-columns: 1fr; }
+    }
+
+    @media print {
+      body { background: white; }
+      .actions, .canvas-actions button, .footer-note { display: none !important; }
+      .hero, .panel, .card, .situation-card { box-shadow: none; }
+      .wrap { max-width: 100%; padding: 0; }
+      .situations-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <h1>12 English Tenses Timeline Practice</h1>
+      <div class="sub">
+        Теперь внутри <strong>каждого времени</strong> есть несколько <strong>ситуаций употребления</strong>. На <strong>каждую ситуацию</strong> студентка пишет <strong>своё отдельное предложение</strong>, рисует <strong>свою мини-диаграмму</strong> и отмечает, какую именно ситуацию она отрабатывает. Можно выбрать <strong>несколько ситуаций сразу</strong>, если предложение реально подходит к ним всем. То есть да: present continuous может быть и <em>happening right now</em>, и <em>temporary situation</em>, и тем самым annoying thing with <em>always</em>. Красота. Хаос. Методика.
+      </div>
+    </section>
+
+    <section class="topbar">
+      <div class="panel">
+        <h2>Как работать</h2>
+        <ol>
+          <li>Открой одно время.</li>
+          <li>Выбери одну ситуацию внутри этого времени или несколько, если они реально подходят.</li>
+          <li>Для каждой ситуации напиши отдельное простое предложение.</li>
+          <li>Нарисуй мини-таймлайн или схему именно под это предложение.</li>
+          <li>Проверь, что диаграмма объясняет смысл времени, а не просто изображает художественный кризис.</li>
+        </ol>
+        <div class="legend">
+          <span class="pill">Past</span>
+          <span class="pill">Now</span>
+          <span class="pill">Future</span>
+          <span class="pill">Finished</span>
+          <span class="pill">In progress</span>
+          <span class="pill">Before another point</span>
+        </div>
+      </div>
+
+      <div class="panel progress-box">
+        <h2>Прогресс</h2>
+        <div class="progress-row">
+          <span>Заполнено ситуаций</span>
+          <strong id="progressText">0 / 36</strong>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div class="actions">
+          <button class="primary" id="saveBtn">Сохранить</button>
+          <button class="secondary" id="printBtn">Печать / PDF</button>
+          <button class="ghost" id="resetBtn">Сбросить всё</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid" id="cards"></section>
+
+    <div class="footer-note">Ответы сохраняются в браузере. То есть сайт помнит лучше, чем некоторые бывшие.</div>
+  </div>
+
+  <script>
+    const tenseData = [
+      {
+        name: 'Present Simple',
+        hint: 'Habits, facts, repeated actions, timetables.',
+        situations: [
+          'habit or routine',
+          'general fact / truth',
+          'fixed timetable or schedule'
+        ]
+      },
+      {
+        name: 'Present Continuous',
+        hint: 'Now, around now, temporary situations, changing trends, annoying habits with always.',
+        situations: [
+          'happening right now',
+          'temporary situation around now',
+          'annoying habit with always'
+        ]
+      },
+      {
+        name: 'Present Perfect',
+        hint: 'Past linked to now, life experience, recent result, unfinished time.',
+        situations: [
+          'life experience',
+          'recent result important now',
+          'unfinished time period'
+        ]
+      },
+      {
+        name: 'Present Perfect Continuous',
+        hint: 'Action started before now and continues, often with duration or visible result.',
+        situations: [
+          'started in the past and continues now',
+          'focus on duration with for/since',
+          'visible present result of ongoing activity'
+        ]
+      },
+      {
+        name: 'Past Simple',
+        hint: 'Finished past action, sequence of events, specific past time.',
+        situations: [
+          'single finished action in the past',
+          'specific past time',
+          'sequence of completed past actions'
+        ]
+      },
+      {
+        name: 'Past Continuous',
+        hint: 'Action in progress in the past, background description, interrupted action.',
+        situations: [
+          'action in progress at a past moment',
+          'background scene in the past',
+          'long action interrupted by shorter one'
+        ]
+      },
+      {
+        name: 'Past Perfect',
+        hint: 'Earlier past action before another past action or moment.',
+        situations: [
+          'completed before another past action',
+          'completed before a past moment',
+          'reason/result already existed in the past'
+        ]
+      },
+      {
+        name: 'Past Perfect Continuous',
+        hint: 'Duration before another point in the past.',
+        situations: [
+          'duration before another past action',
+          'duration before a past moment',
+          'past result caused by earlier ongoing action'
+        ]
+      },
+      {
+        name: 'Future Simple',
+        hint: 'Predictions, spontaneous decisions, promises, offers.',
+        situations: [
+          'prediction',
+          'spontaneous decision',
+          'promise / offer / willingness'
+        ]
+      },
+      {
+        name: 'Future Continuous',
+        hint: 'Action in progress at a future time, expected future course.',
+        situations: [
+          'in progress at a future moment',
+          'future action as part of normal course',
+          'polite question about future plans'
+        ]
+      },
+      {
+        name: 'Future Perfect',
+        hint: 'Completed before a future point.',
+        situations: [
+          'finished before a future time',
+          'result achieved by deadline',
+          'completed before another future event'
+        ]
+      },
+      {
+        name: 'Future Perfect Continuous',
+        hint: 'Duration continuing up to a future point.',
+        situations: [
+          'duration until a future moment',
+          'focus on length by a future deadline',
+          'ongoing activity before another future event'
+        ]
+      }
+    ];
+
+    const cardsEl = document.getElementById('cards');
+    const progressText = document.getElementById('progressText');
+    const progressFill = document.getElementById('progressFill');
+    const STORAGE_KEY = 'tensesTimelinePracticeStateV2';
+    const canvasStates = {};
+
+    function scenarioId(tenseIndex, situationIndex) {
+      return `${tenseIndex}-${situationIndex}`;
+    }
+
+    function buildCards() {
+      cardsEl.innerHTML = '';
+
+      tenseData.forEach((tense, tenseIndex) => {
+        const card = document.createElement('article');
+        card.className = 'card';
+
+        card.innerHTML = `
+          <div class="card-top">
+            <div>
+              <h3>${tenseIndex + 1}. ${tense.name}</h3>
+              <div class="mini">${tense.hint}</div>
+            </div>
+            <div class="badge">${tense.situations.length} situations</div>
+          </div>
+          <div class="situations-grid">
+            ${tense.situations.map((situation, situationIndex) => {
+              const id = scenarioId(tenseIndex, situationIndex);
+              return `
+                <section class="situation-card">
+                  <div class="situation-head">
+                    <div class="situation-title">${situationIndex + 1}. ${situation}</div>
+                    <label class="situation-pick">
+                      <input type="checkbox" class="scenario-check" data-id="${id}" />
+                      <span>this fits</span>
+                    </label>
+                  </div>
+
+                  <label class="field-label" for="sentence-${id}">Write a sentence for this situation</label>
+                  <textarea id="sentence-${id}" data-id="${id}" placeholder="Write one simple sentence here..."></textarea>
+
+                  <label class="field-label">Draw a mini-diagram for this sentence</label>
+                  <div class="canvas-wrap">
+                    <div class="timeline-hint">
+                      <span>Past</span>
+                      <span>Now</span>
+                      <span>Future</span>
+                    </div>
+                    <canvas id="canvas-${id}" width="600" height="140" data-id="${id}"></canvas>
+                    <div class="canvas-actions">
+                      <button class="ghost clear-canvas" data-id="${id}">Очистить диаграмму</button>
+                      <span class="mini">Линия, стрелка, точка, кружок — всё ок, если это объясняет смысл.</span>
+                    </div>
+                  </div>
+
+                  <div class="scenario-notice">Если одно и то же предложение реально подходит ещё к одной ситуации внутри времени, можно повторить идею и отметить несколько карточек. Но пусть это будет честно, а не грамматическая коррупция.</div>
+                </section>
+              `;
+            }).join('')}
+          </div>
+        `;
+
+        cardsEl.appendChild(card);
+      });
+
+      setupTextareas();
+      setupCanvases();
+      setupChecks();
+      restoreState();
+      updateProgress();
+    }
+
+    function setupTextareas() {
+      document.querySelectorAll('textarea').forEach(area => {
+        area.addEventListener('input', () => {
+          saveState();
+          updateProgress();
+        });
+      });
+    }
+
+    function setupChecks() {
+      document.querySelectorAll('.scenario-check').forEach(input => {
+        input.addEventListener('change', saveState);
+      });
+    }
+
+    function drawBaseTimeline(ctx, canvas) {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      ctx.lineWidth = 2;
+      ctx.strokeStyle = '#d9cbb6';
+      ctx.beginPath();
+      ctx.moveTo(50, 80);
+      ctx.lineTo(canvas.width - 50, 80);
+      ctx.stroke();
+
+      ctx.lineWidth = 1.5;
+      ctx.strokeStyle = '#b59b7a';
+      ctx.beginPath();
+      ctx.moveTo(canvas.width / 2, 35);
+      ctx.lineTo(canvas.width / 2, 110);
+      ctx.stroke();
+
+      ctx.fillStyle = '#7a6a58';
+      ctx.font = '12px Inter, sans-serif';
+      ctx.fillText('Past', 18, 84);
+      ctx.fillText('Now', canvas.width / 2 - 12, 28);
+      ctx.fillText('Future', canvas.width - 88, 84);
+    }
+
+    function redrawCanvas(id) {
+      const canvas = document.getElementById(`canvas-${id}`);
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      drawBaseTimeline(ctx, canvas);
+      const strokes = canvasStates[id] || [];
+
+      ctx.strokeStyle = '#8b5e3c';
+      ctx.lineWidth = 3;
+      ctx.lineJoin = 'round';
+      ctx.lineCap = 'round';
+
+      strokes.forEach(stroke => {
+        if (!stroke.length) return;
+        ctx.beginPath();
+        ctx.moveTo(stroke[0].x, stroke[0].y);
+        for (let i = 1; i < stroke.length; i++) {
+          ctx.lineTo(stroke[i].x, stroke[i].y);
+        }
+        ctx.stroke();
+      });
+    }
+
+    function setupCanvases() {
+      document.querySelectorAll('canvas').forEach(canvas => {
+        const id = canvas.dataset.id;
+        canvasStates[id] = canvasStates[id] || [];
+        redrawCanvas(id);
+
+        let drawing = false;
+        let currentStroke = [];
+
+        function getPos(e) {
+          const rect = canvas.getBoundingClientRect();
+          const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+          const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+          return {
+            x: (clientX - rect.left) * (canvas.width / rect.width),
+            y: (clientY - rect.top) * (canvas.height / rect.height)
+          };
+        }
+
+        function start(e) {
+          drawing = true;
+          currentStroke = [];
+          const pos = getPos(e);
+          currentStroke.push(pos);
+          canvasStates[id].push(currentStroke);
+          redrawCanvas(id);
+          e.preventDefault();
+        }
+
+        function move(e) {
+          if (!drawing) return;
+          const pos = getPos(e);
+          currentStroke.push(pos);
+          redrawCanvas(id);
+          saveState();
+          e.preventDefault();
+        }
+
+        function end() {
+          if (!drawing) return;
+          drawing = false;
+          saveState();
+        }
+
+        canvas.addEventListener('mousedown', start);
+        canvas.addEventListener('mousemove', move);
+        window.addEventListener('mouseup', end);
+
+        canvas.addEventListener('touchstart', start, { passive: false });
+        canvas.addEventListener('touchmove', move, { passive: false });
+        window.addEventListener('touchend', end);
+      });
+
+      document.querySelectorAll('.clear-canvas').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = btn.dataset.id;
+          canvasStates[id] = [];
+          redrawCanvas(id);
+          saveState();
+        });
+      });
+    }
+
+    function getState() {
+      const sentences = {};
+      document.querySelectorAll('textarea').forEach(area => {
+        sentences[area.dataset.id] = area.value;
+      });
+
+      const checks = {};
+      document.querySelectorAll('.scenario-check').forEach(input => {
+        checks[input.dataset.id] = input.checked;
+      });
+
+      return { sentences, checks, canvasStates };
+    }
+
+    function saveState() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(getState()));
+    }
+
+    function restoreState() {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return;
+
+      try {
+        const state = JSON.parse(raw);
+
+        if (state.sentences) {
+          document.querySelectorAll('textarea').forEach(area => {
+            area.value = state.sentences[area.dataset.id] || '';
+          });
+        }
+
+        if (state.checks) {
+          document.querySelectorAll('.scenario-check').forEach(input => {
+            input.checked = !!state.checks[input.dataset.id];
+          });
+        }
+
+        if (state.canvasStates) {
+          Object.keys(state.canvasStates).forEach(key => {
+            canvasStates[key] = state.canvasStates[key] || [];
+            redrawCanvas(key);
+          });
+        }
+      } catch (e) {
+        console.error('Could not restore saved state', e);
+      }
+    }
+
+    function updateProgress() {
+      const textareas = Array.from(document.querySelectorAll('textarea'));
+      const count = textareas.filter(area => area.value.trim().length > 0).length;
+      const total = textareas.length;
+      progressText.textContent = `${count} / ${total}`;
+      progressFill.style.width = `${(count / total) * 100}%`;
+    }
+
+    document.getElementById('saveBtn').addEventListener('click', () => {
+      saveState();
+      const btn = document.getElementById('saveBtn');
+      const oldText = btn.textContent;
+      btn.textContent = 'Сохранено';
+      setTimeout(() => btn.textContent = oldText, 1200);
+    });
+
+    document.getElementById('printBtn').addEventListener('click', () => window.print());
+
+    document.getElementById('resetBtn').addEventListener('click', () => {
+      if (!confirm('Удалить все предложения, галочки и диаграммы?')) return;
+      localStorage.removeItem(STORAGE_KEY);
+      Object.keys(canvasStates).forEach(key => canvasStates[key] = []);
+      buildCards();
+    });
+
+    buildCards();
+  </script>
+</body>
+</html>
